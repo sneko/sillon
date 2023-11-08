@@ -2,7 +2,7 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - main
+      - original
   pull_request:
 env:
   NODE_OPTIONS: --max_old_space_size=4096
@@ -69,7 +69,7 @@ jobs:
         run: make generate-pdf-in-ci
 
       - name: Deploy to Netlify
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/original' }}
         uses: netlify/actions/cli@master
         with:
           args: deploy --dir=dist --prod

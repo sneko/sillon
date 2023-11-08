@@ -32,7 +32,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/sneko/sillon/tree/main/',
+          editUrl: 'https://github.com/sneko/sillon/tree/original/',
         },
         blog: false,
         theme: {
