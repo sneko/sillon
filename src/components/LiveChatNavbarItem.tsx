@@ -1,6 +1,7 @@
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { TransferWarningModal } from '@site/src/components/TransferWarningModal';
 import type { Props as DefaultNavbarItemProps } from '@theme/NavbarItem/DefaultNavbarItem';
 import { Crisp } from 'crisp-sdk-web';
 import React from 'react';
@@ -40,14 +41,25 @@ export default function LiveChatNavbarItem(props: LiveChatNavbarItemProps): JSX.
   });
 
   return (
-    <button
-      className="button button--secondary margin-horiz--sm hide-on-small"
-      onClick={() => {
-        Crisp.chat.open();
-      }}
-    >
-      <FontAwesomeIcon icon={faComment} className="margin-right--sm" />
-      Support
-    </button>
+    <>
+      <button
+        className="button button--secondary margin-horiz--sm hide-on-small"
+        onClick={() => {
+          Crisp.chat.open();
+        }}
+      >
+        <FontAwesomeIcon icon={faComment} className="margin-right--sm" />
+        Support
+      </button>
+
+      {/*
+      ---
+      The following is used on each page to avoid patching the global theme
+      (hack with the plateform value to only have one instance since there are 2 built menus for desktop and mobile dimensions)
+      ---
+      */}
+
+      {!props.mobile && <TransferWarningModal />}
+    </>
   );
 }
