@@ -85,7 +85,7 @@ const config = {
             href: 'https://github.com/sneko/sillon',
           },
         ],
-        copyright: `Sauf mention contraire, tous les contenus de ce site sont sous <a href="https://raw.githubusercontent.com/inclusion-numerique/mediature/main/LICENSE">licence AGPL-3.0</a>`,
+        copyright: `Sauf mention contraire, tous les contenus de ce site sont sous <a href="https://raw.githubusercontent.com/sneko/sillon/original/LICENSE">licence MIT</a>`,
       },
       prism: {
         theme: lightCodeTheme,
