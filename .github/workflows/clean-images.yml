@@ -1,0 +1,20 @@
+name: Clean old Docker images
+on:
+  schedule:
+    - cron: '0 7 * * 1' # Every monday at 7am
+  workflow_dispatch: # Allow triggering this pipeline manually
+jobs:
+  clean:
+    name: Docker images clean
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete old production images
+        uses: snok/container-retention-policy@v2
+        with:
+          image-names: sillon/sillon-original # Since using `token-type: github-token` only 1 image name can be specified
+          cut-off: A week ago UTC
+          account-type: personal
+          keep-at-least: 2
+          skip-tags: latest
+          token-type: github-token
+          token: ${{ secrets.GITHUB_TOKEN }}

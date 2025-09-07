@@ -40,13 +40,20 @@ Then a few hacks to apply in the `.mdx` output:
 
 The following ones must be repository secrets (not environment ones) to be used during the CI/CD:
 
-- `NETLIFY_AUTH_TOKEN`: [SECRET]
-- `NETLIFY_SITE_ID`: [SECRET]
+- `COOLIFY_CORE_TOKEN`: [GENERATED] _(can be created into Coolify `Keys & Tokens > API tokens`)_
+- `COOLIFY_CORE_WEBHOOK`: [GENERATED] _(can be retrieved into the Coolify resource for `laby`)_
 - `CRISP_WEBSITE_ID`: [SECRET]
 
 ### Hosting & domain
 
-The "documentation" build is static and we chose Netlify to host it. Just configure the 2 environments variables you can find from the Netlify interface and you're good to go!
+In our case we use Coolify to host our final bundle, just create a resource:
+
+- Use `Existing Docker Image`
+- Image: `ghcr.io/sneko/sillon/sillon-original:latest`
+- General
+  - Domains: `https://sillon.rame.fr`
+  - Direction: `Redirect to non-www.`
+  - Ports Exposes: `80` _(it has to be set according to Coolify)_
 
 _Note: you can add a custom domain easily_
 
