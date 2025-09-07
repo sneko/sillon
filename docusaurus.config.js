@@ -93,7 +93,18 @@ const config = {
       },
     }),
 
-  plugins: ['docusaurus-plugin-sass'],
+  plugins: [
+    'docusaurus-plugin-sass',
+    [
+      '@dipakparmar/docusaurus-plugin-umami',
+      /** @type {import('@dipakparmar/docusaurus-plugin-umami').Options} */
+      ({
+        websiteID: '8458651d-4fc1-4c0d-b1ba-3b5fb8a9cbb8',
+        analyticsDomain: 'analytics.cloud.rame.fr',
+        dataDomains: 'sillon.rame.fr',
+      }),
+    ],
+  ],
   themes: [
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
